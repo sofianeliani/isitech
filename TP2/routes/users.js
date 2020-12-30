@@ -3,7 +3,17 @@ const User = require("../modeles/ModelUser");
 const router = express.Router();
 
 
-router.get("/", async (req, res) => {
+// Routes
+  /**
+   * @swagger
+   * /users:
+   *  get:
+   *    description: Use to request all customers
+   *    responses:
+   *      '200':
+   *        description: A successful response
+  */
+  router.get("/", async (req, res) => {
     try {
       const users = await User.find();
       res.json(users);
@@ -12,10 +22,28 @@ router.get("/", async (req, res) => {
     }
   });
   
+  /**
+   * @swagger
+   * /users/{id}:
+   *  get:
+   *    description: Use to request all customers
+   *    responses:
+   *      '200':
+   *        description: A successful response
+  */
   router.get("/:id", getUser, (req, res) => {
     res.json(res.user);
   });
-  
+
+  /**
+   * @swagger
+   * /users:
+   *  post:
+   *    description: Use to request all customers
+   *    responses:
+   *      '201':
+   *        description: A successful response
+  */
   router.post("/", async (req, res) => {
     const user = new User({
       firstname: req.body.firstname,
@@ -30,6 +58,15 @@ router.get("/", async (req, res) => {
     }
   });
   
+  /**
+   * @swagger
+   * /users/{id}:
+   *  patch:
+   *    description: Use to request all customers
+   *    responses:
+   *      '200':
+   *        description: A successful response
+  */
   router.patch("/:id", getUser, async (req, res) => {
     if (req.body.firstname != null) {
       res.user.firstname = req.body.firstname;
@@ -45,6 +82,15 @@ router.get("/", async (req, res) => {
     }
   });
   
+  /**
+   * @swagger
+   * /users/{id}:
+   *  put:
+   *    description: Use to request all customers
+   *    responses:
+   *      '200':
+   *        description: A successful response
+  */
   router.put("/:id", getUser, async (req, res) => {
     try {
       const updatedUser = await res.user.set(req.body);
@@ -54,6 +100,15 @@ router.get("/", async (req, res) => {
     }
   });
   
+  /**
+   * @swagger
+   * /users/{id}:
+   *  delete:
+   *    description: Use to request all customers
+   *    responses:
+   *      '200':
+   *        description: A successful response
+  */
   router.delete("/:id", getUser, async (req, res) => {
     try {
       await res.user.deleteOne();
