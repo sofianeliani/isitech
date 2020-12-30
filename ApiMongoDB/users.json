@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name":"Philippe Richard",
+        "email": "prichard@test.fr",
+        "city": "Lyon"
+    },
+    {
+        "id": 2,
+        "name":"Deni Bouchard",
+        "email": "dbouchard@test.fr",
+        "city": "Roanne"
+    },
+    {
+        "id": 3,
+        "name":"Carole Perchey ",
+        "email": "cperchey@test.fr",
+        "city": "Paris"
+    },
+    {
+        "id": 4,
+        "name":"Ludo Guagant",
+        "email": "lguagant@test.fr",
+        "city": "Nice"
+    },
+    {
+        "id": 5,
+        "name":"Pauline Pupute",
+        "email": "ppupute@test.fr",
+        "city": "Marseille"
+    }
+]
