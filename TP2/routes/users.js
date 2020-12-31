@@ -48,7 +48,11 @@ const router = express.Router();
     const user = new User({
       firstname: req.body.firstname,
       lastname: req.body.lastname,
-      email: req.body.email
+      email: req.body.email,
+      password: req.body.password,
+      phone: req.body.phone,
+      credentialDate: req.body.credentialDate,
+      role: req.body.role
     });
     try {
       const newUser = await user.save();
@@ -73,6 +77,21 @@ const router = express.Router();
     }
     if (req.body.lastname != null) {
       res.user.lastname = req.body.lastname;
+    }
+    if (req.body.email != null) {
+      res.user.email = req.body.email;
+    }
+    if (req.body.password != null) {
+      res.user.password = req.body.password;
+    }
+    if (req.body.phone != null) {
+      res.user.phone = req.body.phone;
+    }
+    if (req.body.credentialDate != null) {
+      res.user.credentialDate = req.body.credentialDate;
+    }
+    if (req.body.role != null) {
+      res.user.role = req.body.role;
     }
     try {
       const updatedUser = await res.user.save();

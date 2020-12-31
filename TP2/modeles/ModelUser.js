@@ -13,7 +13,23 @@ const userSchema = new Schema({
   email: {
     type: String,
     required: true
-  }
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  phone: {
+    type: Number,
+    required: true
+  },
+  credentialDate: {
+    type: Date,
+    required: true
+  },
+  role: {
+    type: String,
+    required: true
+  },
 });
 
 const User = mongoose.model("User", userSchema);
